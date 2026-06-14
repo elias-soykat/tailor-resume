@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elias Soykat - Resume</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #000;
+      background: #fff;
+    }
+
+    .resume {
+      width: 100%;
+      max-width: 7.5in;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 16pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    header .title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    header .contact {
+      font-size: 9.5pt;
+    }
+
+    header .contact a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    section {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 1px;
+      margin-bottom: 5px;
+    }
+
+    .summary {
+      text-align: left;
+    }
+
+    .skill-group {
+      margin-bottom: 2px;
+    }
+
+    .skill-group strong {
+      font-weight: 700;
+    }
+
+    .job {
+      margin-bottom: 8px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .job-title-line {
+      font-weight: 700;
+    }
+
+    .job-meta {
+      font-size: 9.5pt;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    ul {
+      margin-left: 16px;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 2px;
+    }
+
+    .education-item {
+      margin-bottom: 2px;
+    }
+
+    .education-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .education-degree {
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    
+    <header>
+      <h1>Elias Soykat</h1>
+      <div class="title">Senior Software Engineer</div>
+      <div class="contact">eliasmd624@gmail.com | Dhaka, Bangladesh | <a href="https://linkedin.com/in/elias-soykat">linkedin.com/in/elias-soykat</a> | <a href="https://github.com/elias-soykat">github.com/elias-soykat</a></div>
+    </header>
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">Senior Software Engineer with 6+ years of experience building and scaling SaaS and e-commerce platforms using TypeScript, React.js, Next.js, Node.js, and NestJS. Hands-on technical leader who architects microservices, event-driven systems, and RESTful APIs with PostgreSQL, MongoDB, Redis, and message-queue workers while shipping production code weekly. Proven track record in multi-vendor marketplace operations, order lifecycle systems, performance optimization, and distributed architecture at scale. AI-native engineer who uses AI-assisted development tools to accelerate delivery without compromising quality, and collaborates cross-functionally to translate product strategy into durable technical solutions.</p>
+    </section>
+    <section><h2>Technical Skills</h2><div class="skill-group"><strong>Languages</strong> — TypeScript, JavaScript (ES2022+), SQL, Bash</div><div class="skill-group"><strong>Frontend</strong> — React.js, Next.js, TypeScript, Tailwind CSS, Redux, GraphQL, WebSockets, HTML5, CSS3</div><div class="skill-group"><strong>Backend</strong> — Node.js, Nest.js, Express.js, PostgreSQL, MongoDB, Redis, Microservices, gRPC, Kafka, BullMQ</div><div class="skill-group"><strong>Tools &amp; Ops</strong> — Docker, CI/CD, Git, AWS, Datadog, Linux, Nginx, Monitoring &amp; Logging</div></section>
+    <section><h2>Experience</h2>
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">Senior Full Stack Developer, TechnoNext Software Limited</div>
+            <div class="job-meta">06/2025 – Present | Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Architected and implemented event-driven microservices using Apache Kafka, defining service boundaries, asynchronous communication patterns, and fault-tolerant workflows across distributed SaaS systems.</li><li>Delivered a full order lifecycle system with third-party logistics API integration, SLA tracking, automated notifications, and real-time operational dashboards for e-commerce operations at scale.</li><li>Built a bulk product import pipeline processing 100K+ products using BullMQ workers, AWS S3, and validation workflows, reducing manual operations by 80%.</li><li>Resolved BullMQ and Redis queue bottlenecks, retry failures, and timeout instability under high-load workloads, improving job processing reliability and overall system throughput.</li><li>Developed high-performance seller and admin dashboards using React and NestJS, improving usability for complex multi-vendor operational workflows.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">Senior Frontend Developer, NEXT Ventures</div>
+            <div class="job-meta">08/2023 – 05/2025 | Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Contributed to frontend architecture and implementation for a production platform handling real-time data, transactional workflows, and compliance-sensitive user operations using React, Next.js, and TypeScript.</li><li>Built websocket-driven real-time dashboard updates for high-frequency activity, optimizing rendering performance through React memoization and structured state management.</li><li>Built multilingual platform support across 5+ languages using Next.js and i18Next, while improving frontend maintainability through reusable component structures and modular dashboard layouts.</li><li>Collaborated with backend, product, and QA teams to deliver responsive, production-ready features end-to-end, including server-side PDF generation and operational dashboard capabilities.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">Backend Developer (Node.js), Dorik AI</div>
+            <div class="job-meta">06/2022 – 07/2023 | Sylhet, Bangladesh</div>
+          </div>
+          <ul><li>Designed and maintained a public-facing GraphQL API platform powering integrations with Zapier, Notion, and Google Docs, handling thousands of developer requests daily.</li><li>Reduced third-party integration time by 40% through improved API schema design, structured developer documentation, and consistent error contracts.</li><li>Established observability using Datadog (metrics, traces, alerting), achieving and sustaining 99.9% API uptime for a multi-tenant SaaS platform.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">Frontend Developer, Penta Global Limited</div>
+            <div class="job-meta">04/2019 – 05/2022 | Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Migrated 30+ legacy Laravel views to modern React components while preserving data integrity and REST API compatibility.</li><li>Built a government-backed digital investment platform in React.js, contributing to a 23% increase in regional investment registrations.</li></ul>
+        </div>
+      </section>
+    <section><h2>Education</h2>
+        <div class="education-item">
+          <div class="education-line">
+            <div class="education-degree">Bachelor of Science (BSc), National University Bangladesh</div>
+            <div class="job-meta">2015 – 2020 | Dhaka, Bangladesh</div>
+          </div>
+        </div>
+      </section>
+  
+  </div>
+</body>
+</html>

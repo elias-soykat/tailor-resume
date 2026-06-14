@@ -1,0 +1,214 @@
+{
+  "personal_info": {
+    "full_name": "Elias Soykat",
+    "title": "Senior Full Stack Software Engineer",
+    "email": "eliasmd624@gmail.com",
+    "location": "Dhaka, Bangladesh",
+    "linkedin": "elias-soykat",
+    "github": "elias-soykat"
+  },
+  "professional_summary": "Senior Full Stack Software Engineer with 6+ years of experience building scalable SaaS, fintech, and enterprise platforms using TypeScript, React, Next.js, Node.js, and NestJS. Experienced in designing distributed systems, microservices, and event-driven platforms using Kafka, gRPC, PostgreSQL, Redis, and AWS. Strong background in system design, technical ownership, performance optimization, and delivering reliable software at scale. Active user of AI-assisted development tools to accelerate engineering workflows, improve code quality, and increase delivery velocity.",
+  "years_of_experience": 6,
+  "skills": {
+    "languages": ["TypeScript", "JavaScript (ES2022+)", "SQL", "Bash"],
+    "frontend": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Redux",
+      "GraphQL",
+      "WebSockets",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3"
+    ],
+    "backend": [
+      "Node.js",
+      "Nest.js",
+      "Express.js",
+      "gRPC",
+      "Kafka",
+      "BullMQ",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Microservices"
+    ],
+    "tools_ops": [
+      "Docker",
+      "CI/CD",
+      "AWS",
+      "Datadog",
+      "Linux",
+      "Git",
+      "Nginx",
+      "Monitoring & Logging"
+    ]
+  },
+  "experience": [
+    {
+      "company": "TechnoNext Software Limited",
+      "position": "Senior Full Stack Developer",
+      "start_date": "2025-06",
+      "end_date": "Present",
+      "location": "Dhaka, Bangladesh",
+      "industry": "E-commerce / SaaS",
+      "technologies": [
+        "Node.js",
+        "NestJS",
+        "React",
+        "Kafka",
+        "BullMQ",
+        "Redis",
+        "AWS S3",
+        "gRPC",
+        "PostgreSQL"
+      ],
+      "achievements": [
+        {
+          "description": "Built a bulk product import pipeline processing 100K+ products using BullMQ workers, AWS S3, and validation workflows, reducing manual operations by 80%."
+        },
+        {
+          "description": "Architected and implemented event-driven microservices using Apache Kafka, defining service boundaries, asynchronous communication patterns, and fault-tolerant workflows across distributed systems."
+        },
+        {
+          "description": "Built gRPC-based internal services for inventory management, seller validation, voucher engine, and logistics integrations."
+        },
+        {
+          "description": "Delivered a full order lifecycle system with third-party logistics API integration, SLA tracking, automated notifications, and real-time operational dashboards."
+        },
+        {
+          "description": "Resolved BullMQ + Redis queue bottlenecks, retry failures, and timeout instability under high-load workloads, improving job processing reliability and overall system throughput."
+        },
+        {
+          "description": "Developed high-performance seller and admin dashboards using React and NestJS, improving usability for complex operational workflows."
+        }
+      ]
+    },
+    {
+      "company": "NEXT Ventures",
+      "position": "Senior Frontend Developer",
+      "start_date": "2023-08",
+      "end_date": "2025-05",
+      "location": "Dhaka, Bangladesh",
+      "industry": "Fintech",
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "WebSockets",
+        "i18Next"
+      ],
+      "achievements": [
+        {
+          "description": "Contributed to frontend architecture and implementation for a fintech trading platform handling real-time market data, transactional workflows, and compliance-sensitive user operations."
+        },
+        {
+          "description": "Built websocket-driven real-time dashboard updates for high-frequency market activity, optimizing rendering performance through React memoization and structured state management."
+        },
+        {
+          "description": "Designed scalable frontend state management workflows for authentication, onboarding, trading operations, and real-time portfolio synchronization."
+        },
+        {
+          "description": "Implemented TOTP-based multi-factor authentication, device fingerprinting, and KYC/AML onboarding workflows using Sumsub OCR verification, reducing unauthorized access incidents and improving user verification efficiency."
+        },
+        {
+          "description": "Built multilingual platform support across 5+ languages using Next.js and i18Next, while improving frontend maintainability through reusable component structures and modular dashboard layouts."
+        },
+        {
+          "description": "Collaborated with backend, product, and QA teams to deliver responsive production-ready financial workflows, including server-side PDF certificate generation and operational dashboard features."
+        }
+      ]
+    },
+    {
+      "company": "Dorik AI",
+      "position": "Backend Developer (Node.js)",
+      "start_date": "2022-06",
+      "end_date": "2023-07",
+      "location": "Sylhet, Bangladesh",
+      "industry": "SaaS",
+      "technologies": ["Node.js", "GraphQL", "OAuth2", "Datadog", "Airtable"],
+      "achievements": [
+        {
+          "description": "Designed and maintained a public-facing GraphQL API platform powering integrations with Zapier, Notion, and Google Docs, handling thousands of developer requests daily."
+        },
+        {
+          "description": "Reduced third-party integration time by 40% through improved API schema design, structured developer documentation, and consistent error contracts."
+        },
+        {
+          "description": "Implemented OAuth2 authentication, token-based rate limiting, and fault-tolerant error handling for high-concurrency API traffic."
+        },
+        {
+          "description": "Integrated Airtable as a headless CMS backend, reducing internal content operations workload by 20%."
+        },
+        {
+          "description": "Established observability using Datadog (metrics, traces, alerting), achieving and sustaining 99.9% API uptime."
+        }
+      ]
+    },
+    {
+      "company": "Penta Global Limited",
+      "position": "Frontend Developer",
+      "start_date": "2019-04",
+      "end_date": "2022-05",
+      "location": "Dhaka, Bangladesh",
+      "industry": "Government Technology",
+      "technologies": ["React.js", "JavaScript", "REST API"],
+      "achievements": [
+        {
+          "description": "Built a government-backed digital investment platform in React.js, contributing to a 23% increase in regional investment registrations."
+        },
+        {
+          "description": "Developed a QR-code-based digital certificate system, reducing manual certificate processing time by 30%."
+        },
+        {
+          "description": "Migrated 30+ legacy Laravel views to modern React components while preserving data integrity and API compatibility."
+        },
+        {
+          "description": "Collaborated with backend and QA teams to deliver responsive, production-ready features with improved usability and cross-browser compatibility."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science (BSc)",
+      "institution": "National University Bangladesh",
+      "start_year": 2015,
+      "end_year": 2020,
+      "location": "Dhaka, Bangladesh"
+    }
+  ],
+  "domains": [
+    "Fintech",
+    "SaaS",
+    "E-commerce",
+    "Enterprise Software",
+    "Government Technology"
+  ],
+  "keywords": [
+    "Full Stack Engineer",
+    "Senior Software Engineer",
+    "Frontend Engineer",
+    "Backend Engineer",
+    "Node.js",
+    "NestJS",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Microservices",
+    "Kafka",
+    "AWS",
+    "PostgreSQL",
+    "Redis",
+    "GraphQL",
+    "System Design",
+    "Distributed Systems",
+    "Event Driven Architecture",
+    "OAuth2",
+    "KYC",
+    "AML",
+    "Scalable Applications",
+    "Cloud Native"
+  ]
+}

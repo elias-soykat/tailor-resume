@@ -1,0 +1,4 @@
+node_modules/
+dist/
+output/*.pdf
+output/*_resume.json

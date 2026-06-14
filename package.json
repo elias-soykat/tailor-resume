@@ -1,0 +1,17 @@
+{
+  "name": "tailor-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tailor master resume to job descriptions and export ATS-friendly PDFs",
+  "scripts": {
+    "generate": "tsx src/generate-pdf.ts"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
