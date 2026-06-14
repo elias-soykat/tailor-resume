@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elias Soykat - CV</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #4a5568;
+      --accent: #1e4d6b;
+      --accent-light: #e8f0f4;
+      --rule: #cbd5e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      orphans: 2;
+      widows: 2;
+    }
+
+    .resume {
+      width: 100%;
+      max-width: 170mm;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    header h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    header .title {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    header .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px 8px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    header .contact a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    header .contact a:hover {
+      color: var(--accent);
+    }
+
+    header .contact .sep {
+      color: var(--rule);
+      user-select: none;
+    }
+
+    section {
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      padding: 4px 0 4px 10px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .summary {
+      text-align: justify;
+      color: var(--ink);
+    }
+
+    .skill-group {
+      margin-bottom: 5px;
+      padding-left: 2px;
+    }
+
+    .skill-group strong {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .job {
+      margin-bottom: 10px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 4px;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .job-title-line {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .job-meta {
+      font-size: 9.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 3px;
+      padding-left: 2px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .education-item {
+      margin-bottom: 4px;
+      page-break-inside: avoid;
+    }
+
+    .education-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .education-degree {
+      font-weight: 700;
+    }
+
+    .education-institution {
+      color: var(--muted);
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    
+    <header>
+      <h1>Elias Soykat</h1>
+      <div class="title">Senior Full-Stack Developer</div>
+      <div class="contact"><span>eliasmd624@gmail.com</span><span class="sep">·</span><span>Dhaka, Bangladesh</span><span class="sep">·</span><a href="https://linkedin.com/in/elias-soykat">linkedin.com/in/elias-soykat</a><span class="sep">·</span><a href="https://github.com/elias-soykat">github.com/elias-soykat</a></div>
+    </header>
+    <section>
+      <h2>Professional Profile</h2>
+      <p class="summary">Senior Full-Stack Developer with 6+ years of experience building and operating production SaaS, fintech, and e-commerce platforms using Node.js, React, Next.js, TypeScript, and NestJS. Hands-on engineer with proven microservices and event-driven architecture experience on AWS, PostgreSQL, MongoDB, Redis, and Kafka, delivering scalable REST and gRPC integrations at meaningful scale. Strong in system design, performance optimization, and cross-functional collaboration with product and QA teams. AI-native developer who uses AI-assisted coding tools daily to accelerate delivery, improve code quality, and maintain high engineering standards in containerized, CI/CD-driven environments.</p>
+    </section>
+    <section><h2>Skills</h2><div class="skill-group"><strong>Languages</strong> — TypeScript, JavaScript (ES2022+), SQL, Bash</div><div class="skill-group"><strong>Frontend</strong> — React.js, Next.js, TypeScript, Redux, GraphQL, WebSockets, Tailwind CSS, HTML5, CSS3</div><div class="skill-group"><strong>Backend</strong> — Node.js, Nest.js, Express.js, Microservices, PostgreSQL, MongoDB, Redis, Kafka, gRPC, BullMQ</div><div class="skill-group"><strong>Tools &amp; Ops</strong> — AWS, Docker, CI/CD, Datadog, Git, Linux, Nginx, Monitoring &amp; Logging</div></section>
+    <section><h2>Professional Experience</h2>
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">
+              Senior Full Stack Developer<span class="job-company"> · TechnoNext Software Limited</span>
+            </div>
+            <div class="job-meta">06/2025 – Present · Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Architected and implemented event-driven microservices using Apache Kafka, defining service boundaries, asynchronous communication patterns, and fault-tolerant workflows across distributed SaaS systems.</li><li>Delivered a full order lifecycle system with third-party logistics REST API integration, SLA tracking, automated notifications, and real-time operational dashboards.</li><li>Built gRPC-based internal services for inventory management, seller validation, voucher engine, and logistics integrations across a cloud-based platform.</li><li>Built a bulk product import pipeline processing 100K+ products using BullMQ workers, AWS S3, and validation workflows, reducing manual operations by 80%.</li><li>Developed high-performance seller and admin dashboards using React and NestJS, improving usability for complex operational workflows at production scale.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">
+              Senior Frontend Developer<span class="job-company"> · NEXT Ventures</span>
+            </div>
+            <div class="job-meta">08/2023 – 05/2025 · Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Contributed to frontend architecture for a production fintech platform handling real-time market data, transactional workflows, and compliance-sensitive user operations.</li><li>Implemented TOTP-based multi-factor authentication, device fingerprinting, and KYC/AML onboarding workflows using Sumsub OCR verification, reducing unauthorized access incidents and improving user verification efficiency.</li><li>Built websocket-driven real-time dashboard updates for high-frequency market activity, optimizing rendering performance through React memoization and structured state management.</li><li>Collaborated with backend, product, and QA teams to deliver responsive production-ready financial workflows, including server-side PDF certificate generation and operational dashboard features.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">
+              Backend Developer (Node.js)<span class="job-company"> · Dorik AI</span>
+            </div>
+            <div class="job-meta">06/2022 – 07/2023 · Sylhet, Bangladesh</div>
+          </div>
+          <ul><li>Designed and maintained a public-facing GraphQL API platform powering integrations with Zapier, Notion, and Google Docs, handling thousands of developer requests daily.</li><li>Implemented OAuth2 authentication, token-based rate limiting, and fault-tolerant error handling for high-concurrency API traffic on a multi-tenant SaaS platform.</li><li>Established observability using Datadog (metrics, traces, alerting), achieving and sustaining 99.9% API uptime.</li></ul>
+        </div>
+      
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-line">
+              Frontend Developer<span class="job-company"> · Penta Global Limited</span>
+            </div>
+            <div class="job-meta">04/2019 – 05/2022 · Dhaka, Bangladesh</div>
+          </div>
+          <ul><li>Built a government-backed digital investment platform in React.js, contributing to a 23% increase in regional investment registrations.</li><li>Migrated 30+ legacy Laravel views to modern React components while preserving data integrity and REST API compatibility.</li></ul>
+        </div>
+      </section>
+    <section><h2>Education</h2>
+        <div class="education-item">
+          <div class="education-line">
+            <div>
+              <span class="education-degree">Bachelor of Science (BSc)</span><span class="education-institution">, National University Bangladesh</span>
+            </div>
+            <div class="job-meta">2015 – 2020 · Dhaka, Bangladesh</div>
+          </div>
+        </div>
+      </section>
+  
+  </div>
+</body>
+</html>

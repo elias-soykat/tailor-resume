@@ -25,6 +25,8 @@
       color: var(--ink);
       background: #fff;
       -webkit-font-smoothing: antialiased;
+      orphans: 2;
+      widows: 2;
     }
 
     .resume {
@@ -35,8 +37,8 @@
 
     header {
       text-align: center;
-      padding-bottom: 14px;
-      margin-bottom: 16px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
       border-bottom: 2px solid var(--accent);
     }
 
@@ -80,7 +82,7 @@
     }
 
     section {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     h2 {
@@ -93,6 +95,8 @@
       margin-bottom: 8px;
       border-left: 3px solid var(--accent);
       background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
     .summary {
@@ -111,8 +115,7 @@
     }
 
     .job {
-      margin-bottom: 12px;
-      page-break-inside: avoid;
+      margin-bottom: 10px;
     }
 
     .job-header {
@@ -121,6 +124,8 @@
       align-items: flex-start;
       gap: 16px;
       margin-bottom: 4px;
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
     .job-title-line {
@@ -147,8 +152,10 @@
     }
 
     li {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       padding-left: 2px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     li::marker {

@@ -105,10 +105,10 @@ async function generatePdf(html: string, outputPath: string): Promise<void> {
       format: "A4",
       printBackground: true,
       margin: {
-        top: "20mm",
-        right: "18mm",
-        bottom: "20mm",
-        left: "18mm",
+        top: "11mm",
+        right: "14mm",
+        bottom: "14mm",
+        left: "14mm",
       },
     });
   } finally {
