@@ -8,23 +8,36 @@ export function sanitizeFilenamePart(value: string): string {
     .replace(/_+/g, "_");
 }
 
-export function buildResumeBasename(roleTitle: string): string {
-  const role = sanitizeFilenamePart(roleTitle);
-  return `${OUTPUT_PREFIX}_${role}_resume`;
+export function buildApplicationBasename(roleTitle: string): string {
+  return `${OUTPUT_PREFIX}_${sanitizeFilenamePart(roleTitle)}`;
 }
 
-export function buildResumeOutputPaths(roleTitle: string, outputDir = "output"): {
-  json: string;
-  pdf: string;
-  html: string;
-} {
-  const basename = buildResumeBasename(roleTitle);
+export function buildApplicationFolder(
+  companyName: string,
+  outputDir = "output"
+): string {
   const dir = outputDir.replace(/[/\\]+$/, "");
+  return `${dir}/${sanitizeFilenamePart(companyName)}`;
+}
+
+export function buildApplicationPaths(
+  companyName: string,
+  roleTitle: string,
+  outputDir = "output"
+) {
+  const folder = buildApplicationFolder(companyName, outputDir);
+  const base = buildApplicationBasename(roleTitle);
 
   return {
-    json: `${dir}/${basename}.json`,
-    pdf: `${dir}/${basename}.pdf`,
-    html: `${dir}/${basename}.html`,
+    folder,
+    resume: {
+      json: `${folder}/${base}_resume.json`,
+      pdf: `${folder}/${base}_resume.pdf`,
+    },
+    coverLetter: {
+      json: `${folder}/${base}_cover_letter.json`,
+      pdf: `${folder}/${base}_cover_letter.pdf`,
+    },
   };
 }
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{FULL_NAME}} - Cover Letter</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #4a5568;
+      --accent: #1e4d6b;
+      --rule: #cbd5e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .letter {
+      width: 100%;
+      max-width: 170mm;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    header h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    header .title {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    header .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px 8px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    header .contact a {
+      color: #1155cc;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    header .contact .sep {
+      color: var(--rule);
+      user-select: none;
+    }
+
+    .letter-date {
+      text-align: right;
+      color: var(--muted);
+      font-size: 10pt;
+      margin-bottom: 16px;
+    }
+
+    .recipient {
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    .recipient .company {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .subject {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .salutation {
+      margin-bottom: 12px;
+    }
+
+    .body p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .closing {
+      margin-top: 18px;
+      margin-bottom: 28px;
+    }
+
+    .signature {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    {{CONTENT}}
+  </div>
+</body>
+</html>

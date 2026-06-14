@@ -60,6 +60,23 @@ export interface Resume {
   target_job?: TargetJob;
 }
 
+export interface CoverLetterRecipient {
+  company?: string;
+  name?: string;
+  title?: string;
+}
+
+export interface CoverLetter {
+  personal_info: PersonalInfo;
+  target_job?: TargetJob;
+  date: string;
+  recipient?: CoverLetterRecipient;
+  salutation: string;
+  paragraphs: string[];
+  closing: string;
+  signature_name: string;
+}
+
 export const SKILL_GROUP_LABELS: Record<string, string> = {
   languages: "Languages",
   frontend: "Frontend",

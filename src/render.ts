@@ -1,20 +1,12 @@
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { escapeHtml, renderDocumentHeader } from "./shared.js";
 import {
   Resume,
   SKILL_DISPLAY_ORDER,
   SKILL_GROUP_LABELS,
 } from "./types.js";
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
 
 function formatAchievement(achievement: {
   description: string;
@@ -41,27 +33,6 @@ function formatResumeDate(value: string): string {
 
 function formatDateRange(start: string, end: string, location: string): string {
   return `${formatResumeDate(start)} – ${formatResumeDate(end)} · ${escapeHtml(location)}`;
-}
-
-function renderContact(info: Resume["personal_info"]): string {
-  const items: string[] = [
-    `<span>${escapeHtml(info.email)}</span>`,
-    `<span>${escapeHtml(info.location)}</span>`,
-  ];
-
-  if (info.linkedin) {
-    items.push(
-      `<a href="https://linkedin.com/in/${escapeHtml(info.linkedin)}">linkedin.com/in/${escapeHtml(info.linkedin)}</a>`
-    );
-  }
-
-  if (info.github) {
-    items.push(
-      `<a href="https://github.com/${escapeHtml(info.github)}">github.com/${escapeHtml(info.github)}</a>`
-    );
-  }
-
-  return items.join('<span class="sep">·</span>');
 }
 
 function renderSkills(skills: Resume["skills"]): string {
@@ -136,14 +107,10 @@ function renderEducation(education: Resume["education"]): string {
 }
 
 function renderContent(resume: Resume): string {
-  const { personal_info, professional_summary } = resume;
+  const { professional_summary } = resume;
 
   return `
-    <header>
-      <h1>${escapeHtml(personal_info.full_name)}</h1>
-      <div class="title">${escapeHtml(personal_info.title)}</div>
-      <div class="contact">${renderContact(personal_info)}</div>
-    </header>
+    ${renderDocumentHeader(resume.personal_info)}
     <section>
       <h2>Professional Profile</h2>
       <p class="summary">${escapeHtml(professional_summary)}</p>

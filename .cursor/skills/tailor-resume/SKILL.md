@@ -2,14 +2,14 @@
 name: tailor-resume
 description: >-
   Tailor master_resume.json to a pasted job description and generate an
-  ATS-friendly PDF resume. Use when the user shares a job description, asks
-  for a tailored resume, wants to apply for a job, or requests resume PDF
-  generation from this project.
+  ATS-friendly PDF resume and matching cover letter. Use when the user shares
+  a job description, asks for a tailored resume, cover letter, or wants to
+  apply for a job from this project.
 ---
 
 # Tailor Resume
 
-Generate a job-specific resume PDF from `master_resume.json` and a pasted job description.
+Generate a job-specific resume PDF and cover letter PDF from `master_resume.json` and a pasted job description.
 
 ## Prerequisites
 
@@ -42,30 +42,86 @@ When the user provides a job description:
 }
 ```
 
-4. Save the tailored JSON using this **required filename pattern**:
+4. Create a matching cover letter JSON in the **same application folder**:
 
-   `output/Elias_{RoleTitle}_resume.json`
-
-   - Always start with `Elias_` (first name from master resume)
-   - Use the target job title for `{RoleTitle}`, not the company name
-   - Sanitize: alphanumeric and underscores only
-   - Examples:
-     - `output/Elias_Senior_Software_Engineer_resume.json`
-     - `output/Elias_Frontend_Developer_resume.json`
-     - `output/Elias_Senior_Full_Stack_Engineer_resume.json`
-
-5. Generate the PDF:
-
-```bash
-npm run generate -- --input output/Elias_{RoleTitle}_resume.json --output output/Elias_{RoleTitle}_resume.pdf
+```json
+{
+  "target_job": {
+    "company": "Acme Corp",
+    "title": "Senior Full Stack Engineer",
+    "tailored_at": "2026-06-14"
+  },
+  "personal_info": {
+    "full_name": "Elias Soykat",
+    "title": "Senior Full Stack Engineer",
+    "email": "eliasmd624@gmail.com",
+    "location": "Dhaka, Bangladesh",
+    "linkedin": "elias-soykat",
+    "github": "elias-soykat"
+  },
+  "date": "14 June 2026",
+  "recipient": {
+    "company": "Acme Corp",
+    "title": "Hiring Team"
+  },
+  "salutation": "Dear Hiring Manager,",
+  "paragraphs": [
+    "Opening paragraph: role interest and fit.",
+    "Body paragraph: relevant experience mapped to JD.",
+    "Body paragraph: technical strengths and collaboration.",
+    "Closing paragraph: enthusiasm and availability."
+  ],
+  "closing": "Kind regards,",
+  "signature_name": "Elias Soykat"
+}
 ```
 
-6. Tell the user:
-   - Full path to the PDF
+5. Save both files in an application folder named after the **company**:
+
+   `output/{CompanyName}/`
+
+   Files inside the folder (still prefixed with `Elias_` and the role title):
+   - `Elias_{RoleTitle}_resume.json`
+   - `Elias_{RoleTitle}_cover_letter.json`
+
+   Rules:
+   - Folder name = sanitized company name from the job description
+   - File names still start with `Elias_` and use the target role title
+   - Sanitize folder/file names: alphanumeric and underscores only
+   - Examples:
+     - `output/Scytale/Elias_Senior_Full_Stack_Developer_resume.json`
+     - `output/weDevs/Elias_Senior_Software_Engineer_cover_letter.json`
+
+6. Generate both PDFs:
+
+```bash
+npm run generate -- --dir output/{CompanyName}
+```
+
+7. Tell the user:
+   - Full path to the application folder
+   - Paths to the resume PDF and cover letter PDF
    - What was emphasized (skills, domains, achievements)
    - Any validation warnings from the generator
 
-## Tailoring rules
+## Cover letter rules
+
+### Must do
+
+- Keep tone professional, concise, and modern (European business English)
+- 3–4 paragraphs, about one A4 page
+- Reference the target company and role naturally
+- Highlight 2–3 truthful achievements from `master_resume.json` that match the JD
+- Mirror JD keywords where they truthfully apply
+- Use the same header contact details as the resume
+
+### Must not do
+
+- **Never invent** employers, projects, degrees, or metrics
+- **Never copy** the resume verbatim — complement it with narrative context
+- **Never exceed** one page
+
+## Resume tailoring rules
 
 ### Must do
 
@@ -94,31 +150,13 @@ npm run generate -- --input output/Elias_{RoleTitle}_resume.json --output output
 | Third role   | 2–3 |
 | Oldest role  | 2 |
 
-## Achievement rephrasing
-
-When rephrasing bullets:
-
-- Start with strong action verbs (Built, Architected, Delivered, Optimized)
-- Weave in JD keywords only where they truthfully apply to the original achievement
-- Preserve original metrics exactly (e.g., "80%", "100K+", "99.9%")
-
-## Skill tailoring examples
-
-**JD emphasizes:** React, Next.js, TypeScript, real-time systems
-
-→ Lead frontend skills with React, Next.js, TypeScript; prioritize NEXT Ventures achievements about WebSockets and trading dashboards.
-
-**JD emphasizes:** Kafka, microservices, NestJS, PostgreSQL
-
-→ Lead backend skills; prioritize TechnoNext achievements about Kafka, gRPC, BullMQ, and order lifecycle systems.
-
 ## Validation
 
-The generator validates structure and warns if companies or institutions are not in `master_resume.json`. If warnings appear, fix the tailored JSON before telling the user the resume is ready.
+The generator validates resume structure against `master_resume.json` and validates cover letter structure separately. If warnings appear, fix the JSON before telling the user the application pack is ready.
 
 ## Example user prompt
 
-> Generate my tailored resume PDF for this job:
+> Generate my tailored resume and cover letter for this job:
 >
 > [job description pasted here]
 
@@ -126,8 +164,9 @@ The generator validates structure and warns if companies or institutions are not
 
 Before finishing, confirm:
 
-- [ ] Tailored JSON saved under `output/` as `Elias_{RoleTitle}_resume.json`
-- [ ] PDF generated as `Elias_{RoleTitle}_resume.pdf`
+- [ ] Application folder created under `output/{CompanyName}/`
+- [ ] Resume JSON and cover letter JSON saved in the company folder
+- [ ] Both PDFs generated via `npm run generate -- --dir output/{CompanyName}`
 - [ ] No fabricated facts
-- [ ] Summary and top bullets align with JD priorities
-- [ ] User has the PDF path for immediate application
+- [ ] Summary, bullets, and cover letter align with JD priorities
+- [ ] User has folder path for immediate application
