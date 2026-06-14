@@ -73,6 +73,7 @@ npm run generate -- --input output/Elias_{RoleTitle}_resume.json --output output
 - Adjust `personal_info.title` to closely match the target role when reasonable
 - Reorder skills within each group so JD-relevant items appear first
 - Prioritize skill groups: Languages, Frontend, Backend, Tools & Ops (matching master resume format)
+- Use European section labels in output: Professional Profile, Skills, Professional Experience, Education
 - Select and reorder achievements per role; rephrase bullets to include JD keywords naturally
 - Keep achievement text as full inline sentences (metrics included in the bullet, not separate fields)
 - Keep recent roles detailed, older roles concise

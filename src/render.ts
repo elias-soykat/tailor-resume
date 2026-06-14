@@ -40,28 +40,28 @@ function formatResumeDate(value: string): string {
 }
 
 function formatDateRange(start: string, end: string, location: string): string {
-  return `${formatResumeDate(start)} – ${formatResumeDate(end)} | ${escapeHtml(location)}`;
+  return `${formatResumeDate(start)} – ${formatResumeDate(end)} · ${escapeHtml(location)}`;
 }
 
 function renderContact(info: Resume["personal_info"]): string {
-  const parts: string[] = [
-    escapeHtml(info.email),
-    escapeHtml(info.location),
+  const items: string[] = [
+    `<span>${escapeHtml(info.email)}</span>`,
+    `<span>${escapeHtml(info.location)}</span>`,
   ];
 
   if (info.linkedin) {
-    parts.push(
+    items.push(
       `<a href="https://linkedin.com/in/${escapeHtml(info.linkedin)}">linkedin.com/in/${escapeHtml(info.linkedin)}</a>`
     );
   }
 
   if (info.github) {
-    parts.push(
+    items.push(
       `<a href="https://github.com/${escapeHtml(info.github)}">github.com/${escapeHtml(info.github)}</a>`
     );
   }
 
-  return parts.join(" | ");
+  return items.join('<span class="sep">·</span>');
 }
 
 function renderSkills(skills: Resume["skills"]): string {
@@ -88,7 +88,7 @@ function renderSkills(skills: Resume["skills"]): string {
     return "";
   }
 
-  return `<section><h2>Technical Skills</h2>${items}</section>`;
+  return `<section><h2>Skills</h2>${items}</section>`;
 }
 
 function renderExperience(experience: Resume["experience"]): string {
@@ -101,7 +101,9 @@ function renderExperience(experience: Resume["experience"]): string {
       return `
         <div class="job">
           <div class="job-header">
-            <div class="job-title-line">${escapeHtml(job.position)}, ${escapeHtml(job.company)}</div>
+            <div class="job-title-line">
+              ${escapeHtml(job.position)}<span class="job-company"> · ${escapeHtml(job.company)}</span>
+            </div>
             <div class="job-meta">${formatDateRange(job.start_date, job.end_date, job.location)}</div>
           </div>
           <ul>${bullets}</ul>
@@ -110,17 +112,19 @@ function renderExperience(experience: Resume["experience"]): string {
     })
     .join("");
 
-  return `<section><h2>Experience</h2>${jobs}</section>`;
+  return `<section><h2>Professional Experience</h2>${jobs}</section>`;
 }
 
 function renderEducation(education: Resume["education"]): string {
   const items = education
     .map((item) => {
-      const location = item.location ? ` | ${escapeHtml(item.location)}` : "";
+      const location = item.location ? ` · ${escapeHtml(item.location)}` : "";
       return `
         <div class="education-item">
           <div class="education-line">
-            <div class="education-degree">${escapeHtml(item.degree)}, ${escapeHtml(item.institution)}</div>
+            <div>
+              <span class="education-degree">${escapeHtml(item.degree)}</span><span class="education-institution">, ${escapeHtml(item.institution)}</span>
+            </div>
             <div class="job-meta">${item.start_year} – ${item.end_year}${location}</div>
           </div>
         </div>
@@ -141,7 +145,7 @@ function renderContent(resume: Resume): string {
       <div class="contact">${renderContact(personal_info)}</div>
     </header>
     <section>
-      <h2>Summary</h2>
+      <h2>Professional Profile</h2>
       <p class="summary">${escapeHtml(professional_summary)}</p>
     </section>
     ${renderSkills(resume.skills)}

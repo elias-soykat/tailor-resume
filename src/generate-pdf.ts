@@ -102,13 +102,13 @@ async function generatePdf(html: string, outputPath: string): Promise<void> {
     await page.setContent(html, { waitUntil: "networkidle0" });
     await page.pdf({
       path: outputPath,
-      format: "Letter",
+      format: "A4",
       printBackground: true,
       margin: {
-        top: "0.5in",
-        right: "0.5in",
-        bottom: "0.5in",
-        left: "0.5in",
+        top: "20mm",
+        right: "18mm",
+        bottom: "20mm",
+        left: "18mm",
       },
     });
   } finally {
