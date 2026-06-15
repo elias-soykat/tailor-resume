@@ -1,5 +1,3 @@
-const OUTPUT_PREFIX = "Elias";
-
 export function sanitizeFilenamePart(value: string): string {
   return value
     .trim()
@@ -8,8 +6,16 @@ export function sanitizeFilenamePart(value: string): string {
     .replace(/_+/g, "_");
 }
 
-export function buildApplicationBasename(roleTitle: string): string {
-  return `${OUTPUT_PREFIX}_${sanitizeFilenamePart(roleTitle)}`;
+export function getNamePrefix(fullName: string): string {
+  const firstName = fullName.trim().split(/\s+/)[0] ?? "Candidate";
+  return sanitizeFilenamePart(firstName);
+}
+
+export function buildApplicationBasename(
+  roleTitle: string,
+  namePrefix = "Candidate"
+): string {
+  return `${namePrefix}_${sanitizeFilenamePart(roleTitle)}`;
 }
 
 export function buildApplicationFolder(
@@ -23,10 +29,11 @@ export function buildApplicationFolder(
 export function buildApplicationPaths(
   companyName: string,
   roleTitle: string,
+  namePrefix = "Candidate",
   outputDir = "output"
 ) {
   const folder = buildApplicationFolder(companyName, outputDir);
-  const base = buildApplicationBasename(roleTitle);
+  const base = buildApplicationBasename(roleTitle, namePrefix);
 
   return {
     folder,
@@ -40,5 +47,3 @@ export function buildApplicationPaths(
     },
   };
 }
-
-export { OUTPUT_PREFIX };

@@ -19,18 +19,25 @@ Ensure dependencies are installed once:
 npm install
 ```
 
+If `master_resume.json` does not exist, tell the user to copy the example first:
+
+```bash
+cp master_resume.example.json master_resume.json
+```
+
 ## Workflow
 
 When the user provides a job description:
 
 1. Read [master_resume.json](../../master_resume.json) — this is the **only** source of truth for facts.
-2. Analyze the job description for:
+2. Derive the output name prefix from the user's first name in `personal_info.full_name` (e.g. `Alex` from `Alex Morgan`).
+3. Analyze the job description for:
    - Role title and seniority
    - Company name (if mentioned)
    - Required and preferred skills
    - Domain keywords (fintech, SaaS, microservices, etc.)
    - Responsibilities that map to existing experience
-3. Create a tailored resume JSON using the same schema as `master_resume.json`, plus optional metadata:
+4. Create a tailored resume JSON using the same schema as `master_resume.json`, plus optional metadata:
 
 ```json
 {
@@ -42,7 +49,7 @@ When the user provides a job description:
 }
 ```
 
-4. Create a matching cover letter JSON in the **same application folder**:
+5. Create a matching cover letter JSON in the **same application folder**. Use the user's real contact details from `master_resume.json`:
 
 ```json
 {
@@ -52,12 +59,12 @@ When the user provides a job description:
     "tailored_at": "2026-06-14"
   },
   "personal_info": {
-    "full_name": "Elias Soykat",
+    "full_name": "Alex Morgan",
     "title": "Senior Full Stack Engineer",
-    "email": "eliasmd624@gmail.com",
-    "location": "Dhaka, Bangladesh",
-    "linkedin": "elias-soykat",
-    "github": "elias-soykat"
+    "email": "alex.morgan@example.com",
+    "location": "Berlin, Germany",
+    "linkedin": "alex-morgan-dev",
+    "github": "alexmorgan"
   },
   "date": "14 June 2026",
   "recipient": {
@@ -72,33 +79,33 @@ When the user provides a job description:
     "Closing paragraph: enthusiasm and availability."
   ],
   "closing": "Kind regards,",
-  "signature_name": "Elias Soykat"
+  "signature_name": "Alex Morgan"
 }
 ```
 
-5. Save both files in an application folder named after the **company**:
+6. Save both files in an application folder named after the **company**:
 
    `output/{CompanyName}/`
 
-   Files inside the folder (still prefixed with `Elias_` and the role title):
-   - `Elias_{RoleTitle}_resume.json`
-   - `Elias_{RoleTitle}_cover_letter.json`
+   Files inside the folder:
+   - `{FirstName}_{RoleTitle}_resume.json`
+   - `{FirstName}_{RoleTitle}_cover_letter.json`
 
    Rules:
    - Folder name = sanitized company name from the job description
-   - File names still start with `Elias_` and use the target role title
+   - File prefix = user's first name from `master_resume.json`
    - Sanitize folder/file names: alphanumeric and underscores only
    - Examples:
-     - `output/Scytale/Elias_Senior_Full_Stack_Developer_resume.json`
-     - `output/weDevs/Elias_Senior_Software_Engineer_cover_letter.json`
+     - `output/Acme_Corp/Alex_Senior_Full_Stack_Engineer_resume.json`
+     - `output/Acme_Corp/Alex_Senior_Full_Stack_Engineer_cover_letter.json`
 
-6. Generate both PDFs:
+7. Generate both PDFs:
 
 ```bash
 npm run generate -- --dir output/{CompanyName}
 ```
 
-7. Tell the user:
+8. Tell the user:
    - Full path to the application folder
    - Paths to the resume PDF and cover letter PDF
    - What was emphasized (skills, domains, achievements)

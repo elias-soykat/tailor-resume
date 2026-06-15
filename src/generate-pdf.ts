@@ -75,12 +75,12 @@ function parseArgs(argv: string[]): CliOptions {
 
 function printHelp(): void {
   console.log(`Usage:
-  npm run generate -- --dir output/Scytale
+  npm run generate -- --dir output/Acme_Corp
   npm run generate -- --input <file.json> --output <file.pdf> [--type resume|cover-letter]
 
 Examples:
-  npm run generate -- --dir output/Scytale
-  npm run generate -- --input output/Scytale/Elias_Senior_Software_Engineer_resume.json --output output/Scytale/Elias_Senior_Software_Engineer_resume.pdf
+  npm run generate -- --dir output/Acme_Corp
+  npm run generate -- --input output/Acme_Corp/Alex_Senior_Engineer_resume.json --output output/Acme_Corp/Alex_Senior_Engineer_resume.pdf
 `);
 }
 
