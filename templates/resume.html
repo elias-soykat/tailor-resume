@@ -1,199 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{FULL_NAME}} - Resume</title>
-  <style>
-    :root {
-      --ink: #1a1a1a;
-      --muted: #4a5568;
-      --accent: #1e4d6b;
-      --accent-light: #e8f0f4;
-      --rule: #cbd5e0;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.45;
-      color: var(--ink);
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-      orphans: 2;
-      widows: 2;
-    }
-
-    .resume {
-      width: 100%;
-      max-width: 170mm;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
-      border-bottom: 2px solid var(--accent);
-    }
-
-    header h1 {
-      font-size: 22pt;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    header .title {
-      font-size: 11pt;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    header .contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 4px 8px;
-      font-size: 9.5pt;
-      color: var(--muted);
-    }
-
-    header .contact a {
-      color: #1155cc;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    header .contact a:hover {
-      color: #0b3d91;
-    }
-
-    header .contact .sep {
-      color: var(--rule);
-      user-select: none;
-    }
-
-    section {
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      font-size: 10pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--accent);
-      padding: 4px 0 4px 10px;
-      margin-bottom: 8px;
-      border-left: 3px solid var(--accent);
-      background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
-      break-after: avoid;
-      page-break-after: avoid;
-    }
-
-    .summary {
-      text-align: justify;
-      color: var(--ink);
-    }
-
-    .skill-group {
-      margin-bottom: 5px;
-      padding-left: 2px;
-    }
-
-    .skill-group strong {
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .job {
-      margin-bottom: 10px;
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 4px;
-      break-after: avoid;
-      page-break-after: avoid;
-    }
-
-    .job-title-line {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .job-company {
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .job-meta {
-      font-size: 9.5pt;
-      color: var(--muted);
-      white-space: nowrap;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    ul {
-      margin: 0 0 0 18px;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 3px;
-      padding-left: 2px;
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-
-    li::marker {
-      color: var(--accent);
-    }
-
-    .education-item {
-      margin-bottom: 4px;
-      page-break-inside: avoid;
-    }
-
-    .education-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .education-degree {
-      font-weight: 700;
-    }
-
-    .education-institution {
-      color: var(--muted);
-    }
-
-    @media print {
-      body {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{FULL_NAME}} - Resume</title>
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --muted: #4a5568;
+        --accent: #1e4d6b;
+        --accent-light: #e8f0f4;
+        --rule: #cbd5e0;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="resume">
-    {{CONTENT}}
-  </div>
-</body>
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        color: var(--ink);
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+        orphans: 2;
+        widows: 2;
+      }
+
+      .resume {
+        width: 100%;
+        max-width: 170mm;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      header h1 {
+        font-size: 22pt;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      header .title {
+        font-size: 11pt;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      header .contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1px 2px;
+        font-size: 9.5pt;
+        color: var(--muted);
+      }
+
+      header .contact a {
+        color: #1155cc;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      header .contact a:hover {
+        color: #0b3d91;
+      }
+
+      header .contact .sep {
+        color: #9ca3af;
+        font-weight: 400;
+        padding: 0 6px;
+        user-select: none;
+      }
+
+      section {
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 10pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--accent);
+        padding: 4px 0 4px 10px;
+        margin-bottom: 8px;
+        border-left: 3px solid var(--accent);
+        background: linear-gradient(
+          90deg,
+          var(--accent-light) 0%,
+          transparent 100%
+        );
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .summary {
+        text-align: justify;
+        color: var(--ink);
+      }
+
+      .skill-group {
+        margin-bottom: 5px;
+        padding-left: 2px;
+      }
+
+      .skill-group strong {
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .job {
+        margin-bottom: 10px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 4px;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .job-title-line {
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .job-company {
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .job-meta {
+        font-size: 9.5pt;
+        color: var(--muted);
+        white-space: nowrap;
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      ul {
+        margin: 0 0 0 18px;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 3px;
+        padding-left: 2px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      .education-item {
+        margin-bottom: 4px;
+        page-break-inside: avoid;
+      }
+
+      .education-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+      }
+
+      .education-degree {
+        font-weight: 700;
+      }
+
+      .education-institution {
+        color: var(--muted);
+      }
+
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume">{{CONTENT}}</div>
+  </body>
 </html>

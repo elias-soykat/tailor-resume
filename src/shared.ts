@@ -27,7 +27,7 @@ export function renderContactHeader(info: PersonalInfo): string {
     );
   }
 
-  return items.join('<span class="sep">·</span>');
+  return items.join('<span class="sep">|</span>');
 }
 
 export function renderDocumentHeader(info: PersonalInfo): string {
