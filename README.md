@@ -2,12 +2,12 @@
 
 Tailor your **resume (CV)** and **cover letter** to any job description, then export professional PDFs — built for developers who apply to many roles and want consistent, ATS-friendly documents without starting from scratch each time.
 
-Works great with **Cursor**: paste a job description in chat and let the agent tailor your content from a single master resume file.
+Works great with **Cursor**, **Claude Code**: paste a job description in chat and let the agent tailor your content from a single master resume file.
 
 ## Features
 
 - One **master resume** JSON file as the source of truth
-- Agent-driven tailoring to job descriptions (no external LLM API key required in Cursor)
+- Agent-driven tailoring to job descriptions (no external LLM API key required in Cursor, Claude)
 - Matching **resume + cover letter** PDFs with the same modern European layout
 - Output organized by **company name** under `output/`
 - Validation to reduce fabricated experience in tailored content
@@ -18,7 +18,7 @@ Works great with **Cursor**: paste a job description in chat and let the agent t
 ### 1. Clone and install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/elias-soykat/tailor-resume
 cd tailor-resume
 npm install
 ```
@@ -49,9 +49,9 @@ Optional on Windows if the browser is not detected:
 set PUPPETEER_EXECUTABLE_PATH=C:\Path\To\chrome.exe
 ```
 
-## Usage with Cursor (recommended)
+## Usage with Cursor, Claude Code
 
-1. Open this project in Cursor.
+1. Open this project in Cursor or Claude Code.
 2. Ensure `npm install` has been run once.
 3. Paste a job description in chat, for example:
 
@@ -125,6 +125,7 @@ npm run generate -- --input output/Acme_Corp/Alex_Senior_Engineer_cover_letter.j
 | `src/` | PDF generation CLI and renderers |
 | `templates/` | HTML templates for resume and cover letter |
 | `.cursor/skills/tailor-resume/` | Cursor agent workflow for JD → PDF |
+| `.claude/skills/tailor-resume/` | Claude Code agent workflow for JD → PDF |
 
 ## Privacy
 
