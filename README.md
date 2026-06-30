@@ -55,7 +55,7 @@ set PUPPETEER_EXECUTABLE_PATH=C:\Path\To\chrome.exe
 2. Ensure `npm install` has been run once.
 3. Paste a job description in chat, for example:
 
-   > Generate my tailored resume and cover letter for this job: [paste job description]
+> Generate a tailored resume and cover letter that are fully aligned with the job position described below :
 
 4. The agent reads `.cursor/skills/tailor-resume/SKILL.md`, tailors from `master_resume.json`, saves files under `output/{CompanyName}/`, and runs the PDF generator.
 
@@ -63,14 +63,14 @@ set PUPPETEER_EXECUTABLE_PATH=C:\Path\To\chrome.exe
 
 This file is your **only source of truth**. The agent must not invent facts beyond what you store here.
 
-| Section | What to include |
-|---------|-----------------|
-| `personal_info` | Name, title, email, location, LinkedIn, GitHub |
-| `professional_summary` | Default summary (rewritten per job when tailoring) |
-| `skills` | Grouped skills: `languages`, `frontend`, `backend`, `tools_ops` |
-| `experience` | Jobs with dates, company, location, and `achievements` bullets |
-| `education` | Degrees and institutions |
-| `keywords` | Optional ATS keywords for tailoring |
+| Section                | What to include                                                 |
+| ---------------------- | --------------------------------------------------------------- |
+| `personal_info`        | Name, title, email, location, LinkedIn, GitHub                  |
+| `professional_summary` | Default summary (rewritten per job when tailoring)              |
+| `skills`               | Grouped skills: `languages`, `frontend`, `backend`, `tools_ops` |
+| `experience`           | Jobs with dates, company, location, and `achievements` bullets  |
+| `education`            | Degrees and institutions                                        |
+| `keywords`             | Optional ATS keywords for tailoring                             |
 
 See [master_resume.example.json](master_resume.example.json) for the full schema with sample (fictional) data.
 
@@ -117,15 +117,15 @@ npm run generate -- --input output/Acme_Corp/Alex_Senior_Engineer_cover_letter.j
 
 ## Project structure
 
-| Path | Purpose |
-|------|---------|
-| `master_resume.example.json` | Sample schema + fictional data (safe to commit) |
-| `master_resume.json` | Your real resume data (**gitignored**) |
-| `output/` | Generated applications per company (**gitignored**) |
-| `src/` | PDF generation CLI and renderers |
-| `templates/` | HTML templates for resume and cover letter |
-| `.cursor/skills/tailor-resume/` | Cursor agent workflow for JD → PDF |
-| `.claude/skills/tailor-resume/` | Claude Code agent workflow for JD → PDF |
+| Path                            | Purpose                                             |
+| ------------------------------- | --------------------------------------------------- |
+| `master_resume.example.json`    | Sample schema + fictional data (safe to commit)     |
+| `master_resume.json`            | Your real resume data (**gitignored**)              |
+| `output/`                       | Generated applications per company (**gitignored**) |
+| `src/`                          | PDF generation CLI and renderers                    |
+| `templates/`                    | HTML templates for resume and cover letter          |
+| `.cursor/skills/tailor-resume/` | Cursor agent workflow for JD → PDF                  |
+| `.claude/skills/tailor-resume/` | Claude Code agent workflow for JD → PDF             |
 
 ## Privacy
 
