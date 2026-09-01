@@ -7,6 +7,13 @@ export function resolveChromeExecutable(): string | undefined {
   }
 
   const candidates = [
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+    "/snap/bin/chromium",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
     "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
     "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -30,6 +37,7 @@ export async function generatePdf(
   const browser = await puppeteer.launch({
     headless: true,
     executablePath,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   try {
