@@ -228,7 +228,7 @@
   "projects": [
     {
       "name": "HookVault — Event-Driven Webhook Delivery Platform",
-      "status": "In Development",
+      "status": "Completed",
       "description": "Commercial multi-tenant webhook infrastructure engineered with NestJS, gRPC, Kafka, BullMQ, PostgreSQL, Drizzle ORM, and Redis. Designed for reliable event ingestion, **HMAC-SHA256** signing, idempotency keys, exponential backoff retries, per-endpoint circuit breakers, dead-letter queues, GraphQL inspection APIs, and a Next.js / TanStack Query replay console.",
       "technologies": [
         "TypeScript",
@@ -246,7 +246,7 @@
     },
     {
       "name": "FlowForge — Distributed Order Saga & Ledger Platform",
-      "status": "In Development",
+      "status": "Completed",
       "description": "Commercial order orchestration and financial state-machine engine built with NestJS, Kafka, gRPC, BullMQ, PostgreSQL, Redis, and Next.js. Implements compensating **Saga workflows**, **double-entry payment ledgers**, transactional outbox tables, Redis distributed reservation locks, cross-service correlation tracing, and deterministic dead-letter event replay.",
       "technologies": [
         "TypeScript",
@@ -261,7 +261,7 @@
     },
     {
       "name": "RelayFlow — Multi-Tenant AI Voice & Workflow Automation Platform",
-      "status": "In Development",
+      "status": "Completed",
       "description": "Commercial B2B conversational AI SaaS built over WebRTC and LiveKit combining Deepgram speech-to-text, Gemini tool calling, ElevenLabs synthesis, and **MCP** adapters. Pairs organization-scoped **RBAC**, PostgreSQL / Prisma tenant isolation, and encrypted AWS S3 call storage with BullMQ and FFmpeg post-call workflow pipelines.",
       "technologies": [
         "TypeScript",
