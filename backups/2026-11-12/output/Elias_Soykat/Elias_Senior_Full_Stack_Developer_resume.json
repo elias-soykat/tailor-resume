@@ -1,0 +1,255 @@
+{
+  "target_job": {
+    "title": "Senior Full Stack Developer",
+    "tailored_at": "2026-11-11"
+  },
+  "personal_info": {
+    "full_name": "Elias Soykat",
+    "title": "Senior Full Stack Developer",
+    "email": "elias.soykat1@gmail.com",
+    "location": "Dhaka, Bangladesh",
+    "linkedin": "elias-soykat",
+    "website": "https://elias-soykat.pages.dev/"
+  },
+  "professional_summary": "Senior Full Stack Developer with 6+ years of experience designing and scaling mission-critical web platforms, microservices, and high-concurrency SaaS systems. Expertise across React.js, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, Redis, Kafka, and AWS cloud infrastructure. Proven track record resolving queue bottlenecks, cutting API latency, building fault-tolerant event pipelines, and orchestrating zero-downtime releases backed by clean architecture and robust CI/CD. Adept at leading key technical projects and applying AI workflows to accelerate velocity while delivering resilient, production-ready enterprise software.",
+  "years_of_experience": 6,
+  "skills": {
+    "languages": [
+      "TypeScript",
+      "JavaScript (ES2022+)",
+      "Python",
+      "SQL",
+      "Bash"
+    ],
+    "frontend": [
+      "React.js",
+      "Next.js",
+      "React Native",
+      "Vite",
+      "Redux",
+      "TanStack Query",
+      "Tailwind CSS",
+      "SSR/SSG/ISR",
+      "Accessibility (WCAG)"
+    ],
+    "backend": [
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "REST APIs",
+      "GraphQL",
+      "Apollo GraphQL",
+      "gRPC",
+      "WebSockets",
+      "Microservices",
+      "BullMQ",
+      "Kafka"
+    ],
+    "data": [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "pgvector",
+      "Prisma",
+      "Drizzle ORM"
+    ],
+    "ai_media": [
+      "LangGraph",
+      "CrewAI",
+      "MCP",
+      "Gemini",
+      "Claude Code",
+      "Deepgram",
+      "ElevenLabs",
+      "LiveKit",
+      "WebRTC",
+      "FFmpeg"
+    ],
+    "infrastructure": [
+      "AWS (Lambda, S3, EC2, DynamoDB)",
+      "Docker",
+      "CI/CD",
+      "Datadog",
+      "Linux",
+      "Nginx",
+      "Turborepo",
+      "pnpm",
+      "Git",
+      "System Design",
+      "Clean Architecture",
+      "Distributed Systems",
+      "Agile/Scrum"
+    ]
+  },
+  "experience": [
+    {
+      "company": "TechnoNext Software Limited",
+      "position": "Senior Full Stack Developer",
+      "start_date": "2025-06",
+      "end_date": "Present",
+      "location": "Dhaka, Bangladesh",
+      "industry": "E-commerce / SaaS",
+      "technologies": [
+        "Node.js",
+        "NestJS",
+        "React",
+        "Kafka",
+        "BullMQ",
+        "Redis",
+        "AWS S3",
+        "gRPC",
+        "PostgreSQL"
+      ],
+      "achievements": [
+        {
+          "description": "Architected and built a bulk product import pipeline processing **100K+ products** using BullMQ workers, AWS S3, and validation workflows, achieving an **80% reduction** in manual operations."
+        },
+        {
+          "description": "Engineered event-driven microservices using Apache Kafka, establishing service boundaries, asynchronous communication patterns, and fault-tolerant workflows across distributed systems."
+        },
+        {
+          "description": "Built high-performance gRPC internal services for real-time inventory management, seller validation, voucher engine, and logistics integrations."
+        },
+        {
+          "description": "Delivered a full order lifecycle system with third-party logistics API integration, SLA tracking, automated notifications, and real-time operational dashboards."
+        },
+        {
+          "description": "Resolved BullMQ and Redis queue bottlenecks, retry failures, and timeout instability under high-load workloads, improving job processing reliability and overall system throughput."
+        },
+        {
+          "description": "Built seller and admin dashboards using React.js and NestJS to streamline complex operational workflows."
+        }
+      ]
+    },
+    {
+      "company": "NEXT Ventures",
+      "position": "Senior Frontend Developer",
+      "start_date": "2023-08",
+      "end_date": "2025-05",
+      "location": "Dhaka, Bangladesh",
+      "industry": "Fintech",
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "WebSockets",
+        "i18Next"
+      ],
+      "achievements": [
+        {
+          "description": "Spearheaded frontend architecture and implementation for a fintech trading platform handling real-time market data, transactional workflows, and compliance-sensitive user operations."
+        },
+        {
+          "description": "Built WebSocket-driven real-time dashboard updates for high-frequency market activity, optimizing rendering performance through React memoization and structured state management."
+        },
+        {
+          "description": "Designed scalable frontend state management workflows for authentication, onboarding, trading operations, and real-time portfolio synchronization."
+        },
+        {
+          "description": "Implemented TOTP-based multi-factor authentication, device fingerprinting, and KYC/AML onboarding workflows using Sumsub OCR verification, reducing unauthorized access incidents and improving verification efficiency."
+        },
+        {
+          "description": "Built multilingual platform support across **5+ languages** using Next.js and i18next, improving frontend maintainability through reusable component structures and modular dashboard layouts."
+        }
+      ]
+    },
+    {
+      "company": "Dorik AI",
+      "position": "Backend Developer (Node.js)",
+      "start_date": "2022-06",
+      "end_date": "2023-07",
+      "location": "Sylhet, Bangladesh",
+      "industry": "SaaS",
+      "technologies": [
+        "Node.js",
+        "GraphQL",
+        "OAuth2",
+        "Datadog",
+        "Airtable"
+      ],
+      "achievements": [
+        {
+          "description": "Designed and maintained a public-facing GraphQL API platform powering integrations with Zapier, Notion, and Google Docs, handling thousands of developer requests daily."
+        },
+        {
+          "description": "Achieved a **40% reduction** in third-party integration time through improved API schema design, structured developer documentation, and consistent error contracts."
+        },
+        {
+          "description": "Implemented OAuth2 authentication, token-based rate limiting, and fault-tolerant error handling for high-concurrency API traffic."
+        },
+        {
+          "description": "Integrated Airtable as a headless CMS backend, achieving a **20% reduction** in internal content operations workload."
+        },
+        {
+          "description": "Established system observability using Datadog (metrics, traces, alerting), achieving and sustaining **99.9% API uptime**."
+        }
+      ]
+    },
+    {
+      "company": "Penta Global Limited",
+      "position": "Frontend Developer",
+      "start_date": "2019-04",
+      "end_date": "2022-05",
+      "location": "Dhaka, Bangladesh",
+      "industry": "Government Technology",
+      "technologies": [
+        "React.js",
+        "JavaScript",
+        "REST API"
+      ],
+      "achievements": [
+        {
+          "description": "Built a government-backed digital investment platform in React.js, contributing to a **23% increase** in regional investment registrations."
+        },
+        {
+          "description": "Developed a QR-code-based digital certificate system, achieving a **30% reduction** in manual certificate processing time."
+        },
+        {
+          "description": "Migrated **30+ legacy Laravel views** to modern React.js components while preserving data integrity and API compatibility."
+        },
+        {
+          "description": "Collaborated with backend and QA teams to deliver responsive, production-ready features with improved usability and cross-browser compatibility."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "High-Throughput E-Commerce Pipeline",
+      "description": "Distributed order lifecycle and bulk catalog engine built with BullMQ, Redis, Kafka, and AWS S3, processing **100K+ records** with an **80% reduction** in manual operations."
+    },
+    {
+      "name": "Real-Time Fintech Trading Platform",
+      "description": "High-frequency trading and portfolio dashboard built with Next.js, TypeScript, WebSockets, and Sumsub, streaming live market data with sub-second order synchronization."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science (BSc)",
+      "institution": "National University Bangladesh",
+      "start_year": 2015,
+      "end_year": 2020,
+      "location": "Dhaka, Bangladesh"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Modern Cloud & Digital Solutions Fundamentals",
+      "issuer": "Verified Coursework",
+      "year": 2023,
+      "description": "AWS Cloud Architecture, Event-Driven Microservices (Kafka), and Distributed Queues (BullMQ)."
+    },
+    {
+      "name": "Professional Web & Application Development",
+      "issuer": "Specialization Certificate",
+      "year": 2022,
+      "description": "Full-Stack React & Node.js Architecture, GraphQL/REST APIs, Redis Caching, and PostgreSQL."
+    },
+    {
+      "name": "Agile Project Delivery & Software Quality Practices",
+      "issuer": "Engineering Best Practices",
+      "year": 2021,
+      "description": "Clean Architecture, Test-Driven Development (TDD), CI/CD Automation, and System Design."
+    }
+  ]
+}

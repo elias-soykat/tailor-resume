@@ -54,8 +54,9 @@ When the user provides a job description:
   "personal_info": {
     "full_name": "Elias Soykat",
     "title": "Senior Full Stack Engineer",
-    "email": "eliasmd624@gmail.com",
+    "email": "elias.soykat1@gmail.com",
     "location": "Dhaka, Bangladesh",
+    "website": "https://elias-soykat.pages.dev/",
     "linkedin": "elias-soykat",
     "github": "elias-soykat"
   },

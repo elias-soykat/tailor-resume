@@ -37,7 +37,8 @@ export async function generatePdf(
   const browser = await puppeteer.launch({
     headless: true,
     executablePath,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    pipe: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu"],
   });
 
   try {
@@ -48,10 +49,10 @@ export async function generatePdf(
       format: "A4",
       printBackground: true,
       margin: {
-        top: "11mm",
-        right: "14mm",
-        bottom: "14mm",
-        left: "14mm",
+        top: "0.5in",
+        right: "0.55in",
+        bottom: "0.5in",
+        left: "0.55in",
       },
     });
   } finally {
