@@ -28,6 +28,8 @@ interface CliOptions {
   master: string;
   dir: string;
   type: "resume" | "cover-letter" | "auto";
+  strict: boolean;
+  validateOnly: boolean;
 }
 
 function parseArgs(argv: string[]): CliOptions {
@@ -36,6 +38,8 @@ function parseArgs(argv: string[]): CliOptions {
   let master = defaultMasterPath;
   let dir = "";
   let type: CliOptions["type"] = "auto";
+  let strict = false;
+  let validateOnly = false;
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -58,6 +62,10 @@ function parseArgs(argv: string[]): CliOptions {
         type = next;
       }
       i += 1;
+    } else if (arg === "--strict") {
+      strict = true;
+    } else if (arg === "--validate-only") {
+      validateOnly = true;
     } else if (arg === "--help" || arg === "-h") {
       printHelp();
       process.exit(0);
@@ -70,16 +78,19 @@ function parseArgs(argv: string[]): CliOptions {
     master,
     dir: dir ? resolve(dir) : "",
     type,
+    strict,
+    validateOnly,
   };
 }
 
 function printHelp(): void {
   console.log(`Usage:
   npm run generate -- --dir output/Scytale
-  npm run generate -- --input <file.json> --output <file.pdf> [--type resume|cover-letter]
+  npm run generate -- --input <file.json> --output <file.pdf> [--type resume|cover-letter] [--strict] [--validate-only]
 
 Examples:
   npm run generate -- --dir output/Scytale
+  npm run validate -- --dir output/Elias_Soykat
   npm run generate -- --input output/Scytale/Elias_Senior_Software_Engineer_resume.json --output output/Scytale/Elias_Senior_Software_Engineer_resume.pdf
 `);
 }
@@ -101,21 +112,26 @@ async function writePdfFromJson(
   inputPath: string,
   outputPath: string,
   masterPath: string,
-  type: CliOptions["type"]
+  type: CliOptions["type"],
+  options: Pick<CliOptions, "strict" | "validateOnly">
 ): Promise<void> {
   const documentType = detectDocumentType(inputPath, type);
-  mkdirSync(dirname(outputPath), { recursive: true });
-
   const raw = readFileSync(inputPath, "utf-8");
 
   if (documentType === "cover-letter") {
     const letter = JSON.parse(raw) as CoverLetter;
     const validation = validateCoverLetterStructure(letter);
     printCoverLetterValidation(validation);
-    if (!validation.valid) {
+    if (!validation.valid || (options.strict && validation.warnings.length > 0)) {
       throw new Error("Cover letter validation failed.");
     }
 
+    if (options.validateOnly) {
+      console.log(`Validated cover letter JSON: ${inputPath}`);
+      return;
+    }
+
+    mkdirSync(dirname(outputPath), { recursive: true });
     const html = renderCoverLetterHtml(letter);
     await generatePdf(html, outputPath);
     console.log(`Generated cover letter PDF: ${outputPath}`);
@@ -125,10 +141,16 @@ async function writePdfFromJson(
   const resume = JSON.parse(raw) as Resume;
   const validation = validateAgainstMaster(resume, masterPath);
   printValidationResult(validation);
-  if (!validation.valid) {
+  if (!validation.valid || (options.strict && validation.warnings.length > 0)) {
     throw new Error("Resume validation failed.");
   }
 
+  if (options.validateOnly) {
+    console.log(`Validated resume JSON: ${inputPath}`);
+    return;
+  }
+
+  mkdirSync(dirname(outputPath), { recursive: true });
   const html = renderResumeHtml(resume);
   await generatePdf(html, outputPath);
   console.log(`Generated resume PDF: ${outputPath}`);
@@ -150,7 +172,8 @@ function findApplicationJsonFiles(dir: string): {
 
 async function generateApplicationFolder(
   dir: string,
-  masterPath: string
+  masterPath: string,
+  options: Pick<CliOptions, "strict" | "validateOnly">
 ): Promise<void> {
   if (!existsSync(dir)) {
     throw new Error(`Application folder not found: ${dir}`);
@@ -166,7 +189,7 @@ async function generateApplicationFolder(
 
   if (files.resume) {
     const pdfPath = files.resume.replace(/\.json$/i, ".pdf");
-    await writePdfFromJson(files.resume, pdfPath, masterPath, "resume");
+    await writePdfFromJson(files.resume, pdfPath, masterPath, "resume", options);
   }
 
   if (files.coverLetter) {
@@ -175,21 +198,25 @@ async function generateApplicationFolder(
       files.coverLetter,
       pdfPath,
       masterPath,
-      "cover-letter"
+      "cover-letter",
+      options
     );
   }
 }
 
 async function main(): Promise<void> {
   const options = parseArgs(process.argv.slice(2));
+  const runOptions = { strict: options.strict, validateOnly: options.validateOnly };
 
   if (options.dir) {
-    await generateApplicationFolder(options.dir, options.master);
-    console.log(`Application folder ready: ${options.dir}`);
+    await generateApplicationFolder(options.dir, options.master, runOptions);
+    if (!options.validateOnly) {
+      console.log(`Application folder ready: ${options.dir}`);
+    }
     return;
   }
 
-  if (!options.input || !options.output) {
+  if (!options.input || (!options.output && !options.validateOnly)) {
     printHelp();
     process.exit(1);
   }
@@ -198,7 +225,8 @@ async function main(): Promise<void> {
     options.input,
     options.output,
     options.master,
-    options.type
+    options.type,
+    runOptions
   );
 }
 

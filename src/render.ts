@@ -8,6 +8,14 @@ import {
   SKILL_GROUP_LABELS,
 } from "./types.js";
 
+function formatInlineMarkdown(text: string): string {
+  return escapeHtml(text).replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+}
+
+function renderBulletItem(htmlContent: string): string {
+  return `<li>${htmlContent}</li>`;
+}
+
 function formatAchievement(achievement: {
   description: string;
   impact?: string;
@@ -15,7 +23,7 @@ function formatAchievement(achievement: {
   const text = achievement.impact
     ? `${achievement.description} ${achievement.impact}`
     : achievement.description;
-  return escapeHtml(text);
+  return formatInlineMarkdown(text);
 }
 
 function formatResumeDate(value: string): string {
@@ -25,33 +33,46 @@ function formatResumeDate(value: string): string {
 
   const match = value.match(/^(\d{4})-(\d{2})$/);
   if (match) {
-    return `${match[2]}/${match[1]}`;
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    const monthIndex = parseInt(match[2], 10) - 1;
+    const monthName = months[monthIndex] ?? match[2];
+    return `${monthName} ${match[1]}`;
   }
 
   return escapeHtml(value);
 }
 
 function formatDateRange(start: string, end: string, location: string): string {
-  return `${formatResumeDate(start)} – ${formatResumeDate(end)} · ${escapeHtml(location)}`;
+  return `${escapeHtml(location)} | ${formatResumeDate(start)} – ${formatResumeDate(end)}`;
 }
 
 function renderSkills(skills: Resume["skills"]): string {
   const seenLabels = new Set<string>();
+  const orderedKeys = [
+    ...SKILL_DISPLAY_ORDER,
+    ...Object.keys(skills).filter(
+      (key) => !(SKILL_DISPLAY_ORDER as readonly string[]).includes(key)
+    ),
+  ];
 
-  const items = SKILL_DISPLAY_ORDER.map((key) => {
-    const values = skills[key];
-    if (!Array.isArray(values) || values.length === 0) {
-      return "";
-    }
+  const items = orderedKeys
+    .map((key) => {
+      const values = skills[key];
+      if (!Array.isArray(values) || values.length === 0) {
+        return "";
+      }
 
-    const label = SKILL_GROUP_LABELS[key] ?? key.replace(/_/g, " ");
-    if (seenLabels.has(label)) {
-      return "";
-    }
-    seenLabels.add(label);
+      const label = SKILL_GROUP_LABELS[key] ?? key.replace(/_/g, " ");
+      if (seenLabels.has(label)) {
+        return "";
+      }
+      seenLabels.add(label);
 
-    return `<div class="skill-group"><strong>${escapeHtml(label)}</strong> — ${escapeHtml(values.join(", "))}</div>`;
-  })
+      return `<div class="skill-group"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(values.join(", "))}</div>`;
+    })
     .filter(Boolean)
     .join("");
 
@@ -59,51 +80,116 @@ function renderSkills(skills: Resume["skills"]): string {
     return "";
   }
 
-  return `<section><h2>Skills</h2>${items}</section>`;
+  return `<section><h2>TECHNICAL SKILLS</h2>${items}</section>`;
+}
+
+function renderJobBlock(job: Resume["experience"][number]): string {
+  const bullets = job.achievements
+    .map((achievement) => renderBulletItem(formatAchievement(achievement)))
+    .join("");
+
+  return `
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title-line">
+          ${escapeHtml(job.position)}<span class="job-company"> | ${escapeHtml(job.company)}</span>
+        </div>
+        <div class="job-meta">${formatDateRange(job.start_date, job.end_date, job.location)}</div>
+      </div>
+      <ul class="bullet-list">${bullets}</ul>
+    </div>
+  `;
 }
 
 function renderExperience(experience: Resume["experience"]): string {
-  const jobs = experience
-    .map((job) => {
-      const bullets = job.achievements
-        .map((achievement) => `<li>${formatAchievement(achievement)}</li>`)
-        .join("");
+  const jobs = experience.map(renderJobBlock).join("");
+  return `<section><h2>PROFESSIONAL EXPERIENCE</h2>${jobs}</section>`;
+}
 
-      return `
-        <div class="job">
-          <div class="job-header">
-            <div class="job-title-line">
-              ${escapeHtml(job.position)}<span class="job-company"> · ${escapeHtml(job.company)}</span>
-            </div>
-            <div class="job-meta">${formatDateRange(job.start_date, job.end_date, job.location)}</div>
-          </div>
-          <ul>${bullets}</ul>
+function renderProjects(projects?: Resume["projects"]): string {
+  if (!projects || projects.length === 0) {
+    return "";
+  }
+
+  const items = projects
+    .map((project) => {
+      const desc = formatInlineMarkdown(project.description);
+      const statusBadge =
+        project.status && project.status.toLowerCase() !== "completed"
+          ? ` <span class="project-status">[${escapeHtml(project.status)}]</span>`
+          : "";
+      const link = project.link
+        ? ` <span class="project-link">[<a href="${escapeHtml(project.link)}" target="_blank">${escapeHtml(project.link.replace(/^https?:\/\//, ""))}</a>]</span>`
+        : "";
+      const highlights =
+        project.highlights && project.highlights.length > 0
+          ? `<ul class="bullet-list">${project.highlights.map((bullet) => renderBulletItem(formatInlineMarkdown(bullet))).join("")}</ul>`
+          : "";
+
+      return `<div class="project">
+        <div class="project-header">
+          <div class="project-title"><strong>${escapeHtml(project.name)}</strong>${statusBadge}</div>
+          ${link ? `<div class="project-meta">${link}</div>` : ""}
         </div>
-      `;
+        <p class="project-desc">${desc}</p>
+        ${highlights}
+      </div>`;
     })
     .join("");
 
-  return `<section><h2>Professional Experience</h2>${jobs}</section>`;
+  return `<section><h2>KEY PROJECTS</h2>${items}</section>`;
+}
+
+function renderCertifications(certifications?: Resume["certifications"]): string {
+  if (!certifications || certifications.length === 0) {
+    return "";
+  }
+
+  const items = certifications
+    .map((cert) => {
+      const issuer = cert.issuer ? ` — ${escapeHtml(cert.issuer)}` : "";
+      const year = cert.year ? ` (${escapeHtml(String(cert.year))})` : "";
+      const desc = cert.description
+        ? ` — ${formatInlineMarkdown(cert.description)}`
+        : "";
+      return renderBulletItem(`<strong>${escapeHtml(cert.name)}</strong>${issuer}${year}${desc}`);
+    })
+    .join("");
+
+  return `<section><h2>CERTIFICATIONS</h2><ul class="bullet-list">${items}</ul></section>`;
 }
 
 function renderEducation(education: Resume["education"]): string {
   const items = education
     .map((item) => {
-      const location = item.location ? ` · ${escapeHtml(item.location)}` : "";
+      const locationPrefix = item.location ? `${escapeHtml(item.location)} | ` : "";
+      const degreeSuffix = item.status ? ` (${escapeHtml(item.status)})` : "";
+      const fieldSuffix = item.field_of_study
+        ? ` in ${escapeHtml(item.field_of_study)}`
+        : "";
+      const isIncomplete =
+        Boolean(item.status) &&
+        /\b(?:incomplete|in progress|ongoing|uncompleted|attended)\b/i.test(
+          item.status ?? ""
+        );
+      const dateLabel = isIncomplete
+        ? `Attended ${item.start_year} – ${item.end_year}`
+        : `${item.start_year} – ${item.end_year}`;
+
       return `
         <div class="education-item">
           <div class="education-line">
             <div>
-              <span class="education-degree">${escapeHtml(item.degree)}</span><span class="education-institution">, ${escapeHtml(item.institution)}</span>
+              <span class="education-degree">${escapeHtml(item.degree)}${fieldSuffix}${degreeSuffix}</span><span class="education-institution"> | ${escapeHtml(item.institution)}</span>
             </div>
-            <div class="job-meta">${item.start_year} – ${item.end_year}${location}</div>
+            <div class="job-meta">${locationPrefix}${dateLabel}</div>
           </div>
         </div>
       `;
     })
     .join("");
 
-  return `<section><h2>Education</h2>${items}</section>`;
+  return `<section><h2>EDUCATION</h2>${items}</section>`;
 }
 
 function renderContent(resume: Resume): string {
@@ -112,12 +198,14 @@ function renderContent(resume: Resume): string {
   return `
     ${renderDocumentHeader(resume.personal_info)}
     <section>
-      <h2>Professional Profile</h2>
+      <h2>PROFESSIONAL SUMMARY</h2>
       <p class="summary">${escapeHtml(professional_summary)}</p>
     </section>
     ${renderSkills(resume.skills)}
     ${renderExperience(resume.experience)}
+    ${renderProjects(resume.projects)}
     ${renderEducation(resume.education)}
+    ${renderCertifications(resume.certifications)}
   `;
 }
 

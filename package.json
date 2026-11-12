@@ -4,7 +4,8 @@
   "private": true,
   "description": "Tailor master resume to job descriptions and export ATS-friendly PDFs",
   "scripts": {
-    "generate": "tsx src/generate-pdf.ts"
+    "generate": "tsx src/generate-pdf.ts",
+    "validate": "tsx src/generate-pdf.ts --validate-only --strict"
   },
   "dependencies": {
     "puppeteer-core": "^24.8.2"
