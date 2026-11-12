@@ -27,6 +27,7 @@ When the user provides a job description:
 2. Analyze the job description for:
    - Role title and seniority
    - Company name (if mentioned)
+   - Company location (local vs remote/international)
    - Required and preferred skills
    - Domain keywords (fintech, SaaS, microservices, etc.)
    - Responsibilities that map to existing experience
@@ -126,6 +127,7 @@ npm run generate -- --dir output/{CompanyName}
 
 ### Must do
 
+- **Local company contact rule**: If the target company is a local company (e.g., Bangladesh / Dhaka local or on-site role), include the phone number (`01811-753388`) in `personal_info.phone` so it appears immediately after the email. If it is not a local company (e.g., remote or international), omit `phone` to retain the standard configuration.
 - Rewrite `professional_summary` to mirror JD language and priorities
 - Adjust `personal_info.title` to closely match the target role when reasonable
 - Reorder skills within each group so JD-relevant items appear first

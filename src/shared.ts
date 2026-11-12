@@ -18,6 +18,12 @@ export function renderContactHeader(info: PersonalInfo): string {
     );
   }
 
+  if (info.phone) {
+    items.push(
+      `<span class="contact-item"><a href="tel:${escapeHtml(info.phone.replace(/[\s()-]/g, ""))}" class="contact-link">${escapeHtml(info.phone)}</a></span>`
+    );
+  }
+
   if (info.website) {
     const href = /^https?:\/\//i.test(info.website)
       ? info.website
@@ -27,12 +33,6 @@ export function renderContactHeader(info: PersonalInfo): string {
       .replace(/\/$/, "");
     items.push(
       `<span class="contact-item"><a href="${escapeHtml(href)}" class="contact-link">${escapeHtml(display)}</a></span>`
-    );
-  }
-
-  if (info.phone) {
-    items.push(
-      `<span class="contact-item"><a href="tel:${escapeHtml(info.phone.replace(/[\s()-]/g, ""))}" class="contact-link">${escapeHtml(info.phone)}</a></span>`
     );
   }
 
