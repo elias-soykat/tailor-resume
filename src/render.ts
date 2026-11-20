@@ -119,7 +119,7 @@ function renderProjects(projects?: Resume["projects"]): string {
           ? ` <span class="project-status">[${escapeHtml(project.status)}]</span>`
           : "";
       const link = project.link
-        ? ` <span class="project-link">[<a href="${escapeHtml(project.link)}" target="_blank">${escapeHtml(project.link.replace(/^https?:\/\//, ""))}</a>]</span>`
+        ? ` <span class="project-link"><a href="${escapeHtml(project.link)}" target="_blank">${escapeHtml(project.link.replace(/^https?:\/\//, ""))}</a></span>`
         : "";
       const highlights =
         project.highlights && project.highlights.length > 0
