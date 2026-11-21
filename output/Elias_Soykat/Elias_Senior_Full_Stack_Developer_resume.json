@@ -12,7 +12,7 @@
     "linkedin": "elias-soykat",
     "github": "elias-soykat"
   },
-  "professional_summary": "Senior Full Stack Software Engineer with 6+ years of experience designing and building production web applications, SaaS platforms, and distributed backend services across E-commerce, Fintech, and GovTech. Experienced across TypeScript, React.js, Next.js, Node.js, NestJS, PostgreSQL, Redis, Kafka, and AWS, combining technical ownership, architecture decision documentation, peer code reviews, and technical mentoring with hands-on delivery. Built bulk catalog pipelines processing 100K+ products (80% reduction in manual operations), real-time WebSocket trading interfaces with TOTP MFA and KYC/AML workflows, and public GraphQL APIs sustaining 99.9% uptime with a 40% reduction in third-party integration time.",
+  "professional_summary": "Senior Full Stack Software Engineer with 6+ years of experience designing and building production web applications, SaaS platforms, and distributed backend systems across E-commerce, Fintech, and GovTech. Proficient in TypeScript, React.js, Next.js, Node.js, NestJS, PostgreSQL, Redis, Kafka, and AWS. Experienced in system architecture, event-driven services, technical documentation, code reviews, and mentoring, with a track record of building bulk catalog pipelines processing 100K+ products (80% reduction in manual operations), real-time trading interfaces with TOTP MFA and KYC/AML workflows, and GraphQL APIs sustaining 99.9% uptime while reducing third-party integration time by 40%.",
   "years_of_experience": 6,
   "skills": {
     "languages": ["TypeScript", "JavaScript (ES2022+)", "SQL", "Bash"],
@@ -209,7 +209,7 @@
     {
       "name": "HelpGrid — AI-Powered Customer Support & Sales Automation Platform",
       "status": "Completed",
-      "description": "Architecting a multi-tenant SaaS customer support and sales automation platform integrating shared inbox, ticket management, contact management, and AI-powered workflows. Building a unified AI orchestration layer with RAG-based knowledge retrieval and multi-LLM provider support. Designed a modular service architecture comprising an API gateway, AI agent, background workers, administration console, and embeddable customer-facing widget. Integrating omnichannel communication across WhatsApp, email, Telegram, and website chat, alongside organization-scoped third-party integrations, permission policies, execution auditing, and approval workflows.",
+      "description": "Architecting a multi-tenant SaaS customer support and sales automation platform integrating shared inbox, ticket management, contact management, and AI-powered workflows. Building a unified AI orchestration layer with RAG-based knowledge retrieval and multi-LLM support. Designed modular services for API, AI agents, background processing, and customer-facing interfaces, with omnichannel integrations, role-based access control, and approval workflows.",
       "technologies": [
         "TypeScript",
         "React",
@@ -226,9 +226,9 @@
       "link": "https://helpgrid.pages.dev"
     },
     {
-      "name": "Interview Copilot — Real-Time AI-Powered Desktop Assistant",
+      "name": "Interview Copilot — Open-Source Real-Time AI Interview Assistant",
       "status": "Completed",
-      "description": "Developed a cross-platform AI-powered desktop application for real-time interview assistance, supporting Windows, macOS, and Linux. Implemented microphone and system audio capture with OpenAI Whisper speech-to-text transcription and intelligent question detection using linguistic heuristics. Integrated GPT models to generate concise, context-aware interview responses and OpenAI Vision API for screenshot-based coding and system design problem analysis. Implemented secure Electron IPC, encrypted local settings storage, session history management.",
+      "description": "Developed a cross-platform Electron application for real-time AI-powered interview assistance. Integrated microphone and system audio capture with Whisper speech-to-text, intelligent question detection, and GPT-generated contextual responses. Implemented screenshot-based code analysis using OpenAI Vision, secure IPC communication, encrypted settings storage, and interview session management.",
       "technologies": [
         "Electron",
         "React 19",
