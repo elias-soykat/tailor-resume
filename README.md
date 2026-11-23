@@ -18,7 +18,7 @@ set PUPPETEER_EXECUTABLE_PATH=C:\Path\To\chrome.exe
 
 Open a chat in this workspace and paste a job description:
 
-> Generate a tailored resume and cover letter that are fully aligned with the job position described below :
+> Generate a tailored resume that are fully aligned with the job position described below :
 
 The agent will tailor [master_resume.json](master_resume.json), save files under a company folder in `output/`, and generate PDFs you can apply with immediately.
 
